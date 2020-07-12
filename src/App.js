@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import Main from './Components/MainComponent';
-import AppCss from './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import './App.css';
 
 class App extends Component {
 
     render() {
         return ( <
-            div className = "AppCss" >
+            BrowserRouter >
             <
             Main / >
             <
-            /div>
+            /BrowserRouter>
+
         );
     }
 }

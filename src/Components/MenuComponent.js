@@ -1,10 +1,9 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
-function MenuItem({ dish, onClick }) {
+function MenuItem({ dish }) {
     return ( <
-        Card onClick = {
-            () => onClick(dish.id) } >
+        Card >
         <
         CardImg width = "100%"
         src = { dish.image }
@@ -20,24 +19,24 @@ function MenuItem({ dish, onClick }) {
 
 const Menu = (props) => {
     const menu = props.dishes.map(dish => {
-        return ( <
-            div key = { dish.id }
-            className = "col-12 col-md-5 m-1" >
-            <
-            MenuItem dish = { dish }
-            onClick = { props.onClick }
+            return ( <
+                div key = { dish.id }
+                className = "col-12 col-md-5 m-1" >
+                <
+                MenuItem dish = { dish }
+            }
             /> <
             /div>
         );
     });
 
-    return ( <
-        div className = "container" >
-        <
-        div className = "row" > { menu } <
-        /div> <
-        /div>
-    );
+return ( <
+    div className = "container" >
+    <
+    div className = "row" > { menu } <
+    /div> <
+    /div>
+);
 }
 
 export default Menu;
