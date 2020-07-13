@@ -10,25 +10,20 @@ const store = ConfigureStore();
 class App extends Component {
 
     render() {
-        const Root = () => {
-            return ( <
-                React.Fragment >
-                <
-                BrowserRouter >
-                <
-                Main / >
-                <
-                /BrowserRouter> <
-                /React.Fragment>
+        const Root =() =>{
+            return(
+                <React.Fragment>
+                    <BrowserRouter>
+                        <Main/>
+                    </BrowserRouter>
+                </React.Fragment>
             );
         }
 
-        return ( <
-            Provider store = { store } >
-            <
-            Root / >
-            <
-            /Provider>   
+        return (
+            <Provider store={store}>
+                <Root/>
+            </Provider>   
         );
     }
 }
