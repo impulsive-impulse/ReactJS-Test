@@ -2,17 +2,7 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Row, Col, Input, Label } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
-/*<Label for="rating">Rating</Label>
-<Input type="select" name="rating" id="rating">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</Input>*/
-
-
-class AddComment extends Component {
+class CommentForm extends Component {
 
     constructor(props) {
         super(props);
@@ -22,7 +12,7 @@ class AddComment extends Component {
         };
 
         this.toggleModal = this.toggleModal.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     toggleModal() {
@@ -31,11 +21,9 @@ class AddComment extends Component {
         });
     }
 
-    handleLogin(event) {
+    handleSubmit(values) {
         this.toggleModal();
-        alert("Username: " + this.username.value + " Password: " + this.password.value +
-            " Remember: " + this.remember.checked);
-        event.preventDefault();
+        this.props.addComment(this.props.dishId, values.rating, values.username, values.message);
     }
 
     render() {
@@ -102,8 +90,6 @@ class AddComment extends Component {
             /Col> <
             /Row>
 
-
-
             <
             Row className = "form-group" >
             <
@@ -138,4 +124,4 @@ class AddComment extends Component {
     }
 }
 
-export default AddComment;
+export default CommentForm;
