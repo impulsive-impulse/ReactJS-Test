@@ -61,16 +61,16 @@ class AddComment extends Component {
             md = { 2 } > Rating < /Label> <
             Col md = { 10 } >
             <
-            Input type = "select"
+            Control.select model = ".rating"
             name = "rating"
-            id = "rating" >
+            className = "form-control" >
             <
             option > 1 < /option> <
             option > 2 < /option> <
             option > 3 < /option> <
             option > 4 < /option> <
             option > 5 < /option> <
-            /Input> <
+            /Control.select> <
             /Col> <
             /Row> <
             Row className = "form-group" >
