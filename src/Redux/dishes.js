@@ -10,7 +10,6 @@ export const Dishes = (state = {
             return {...state, isLoading: false, errMess: null, dishes: action.payload };
 
         case ActionTypes.DISHES_LOADING:
-            console.log('Fetch dishes dispached');
             return {...state, isLoading: true, errMess: null, dishes: [] }
 
         case ActionTypes.DISHES_FAILED:
