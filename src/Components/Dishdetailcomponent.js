@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 class CommentForm extends Component {
 
@@ -131,6 +132,13 @@ function RenderDish({ dish }) {
     return ( <
         div className = "col-12 col-md-5 mt-1" >
         <
+        FadeTransform in
+        transformProps = {
+            {
+                exitTransform: 'scale(0.5) translateY(-50%)'
+            }
+        } >
+        <
         Card >
         <
         CardImg width = "100%"
@@ -143,6 +151,7 @@ function RenderDish({ dish }) {
         CardText > { dish.description } < /CardText> <
         /CardBody> <
         /Card> <
+        /FadeTransform> <
         /div>
     );
 }
@@ -150,19 +159,21 @@ function RenderDish({ dish }) {
 
 function RenderComments({ comments, postComment, dishId }) {
 
-    const commentsMap = comments.map((comment) => {
-        var date = comment.date.substring(0, 10).split('-');
-        var month_names_short = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const commentsMap = < Stagger in > {
+        comments.map((comment) => {
+            var date = comment.date.substring(0, 10).split('-');
+            var month_names_short = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-        return ( <
-            li >
-            <
-            p > { comment.comment } < /p> <
-            p > --{ comment.author }, { month_names_short[date[1] - 1] } {
-                ("0" + (parseInt(date[2]) + 1)).slice(-2) }, { date[0] } < /p> <
-            /li>
-        );
-    })
+            return ( <
+                li >
+                <
+                p > { comment.comment } < /p> <
+                p > --{ comment.author }, { month_names_short[date[1] - 1] } {
+                    ("0" + (parseInt(date[2]) + 1)).slice(-2) }, { date[0] } < /p> <
+                /li>
+            );
+        })
+    } < /Stagger>
 
     return ( <
         div className = "col-12 col-md-5 mt-1" >

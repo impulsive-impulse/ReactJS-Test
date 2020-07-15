@@ -2,6 +2,7 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
+import { Stagger } from 'react-animation-components';
 
 function About(props) {
 
@@ -9,6 +10,8 @@ function About(props) {
         return ( <
             div key = { leader.id }
             className = "col-12 mt-5" >
+            <
+            Stagger in >
             <
             Media tag = "li" >
             <
@@ -25,6 +28,7 @@ function About(props) {
             p > { leader.description } < /p> <
             /Media> <
             /Media> <
+            /Stagger> <
             /div>
         );
     });
